@@ -53,7 +53,7 @@
 </div>
 </template>
 
-<script>
+<script >
 import Vue from "vue";
 import {mapGetters, mapActions, mapMutations} from 'vuex'
 export default Vue.extend ({

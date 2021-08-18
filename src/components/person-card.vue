@@ -1,7 +1,7 @@
 <template>
   <div v-if="user">
-<!--    <v-row>-->
-<!--      <v-col cols="4">-->
+    <v-row>
+      <v-col cols="4">
         <img :src="user.avatar_url" alt="user avatar" width="200" height="200">
         <h4>
           {{user.login}}
@@ -9,8 +9,8 @@
         <div>
           <a :href="user.html_url">Follow</a>
         </div>
-<!--      </v-col>-->
-<!--    </v-row>-->
+      </v-col>
+    </v-row>
   </div>
 </template>
 
