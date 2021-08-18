@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-alert :type="getError.type" v-if="getError.show && !isFetching">
+    <v-alert :type="getError.type" v-if="getError && getError.show && !isFetching">
       {{getError.message}}
     </v-alert>
     <div v-if="getUsers && getUsers.length && !isFetching" class="mb-3">
@@ -23,7 +23,10 @@
     </div>
     <table v-if="getUsers && getUsers.length && !isFetching">
     <tbody>
-      <tr  v-for="item in getUsers" :key="item.id" height="50px">
+      <tr  v-for="(item, i) in getUsers"
+           :key="item.id"
+           height="50px"
+           :style="{background: i%2 === 0 ? 'lightGray' : 'transparent'}">
         <td class="pl-3" width="90%"><b>{{item.login}}</b></td>
         <td class="pa-3 text-center" >
           <router-link tag="v-btn" :to="{name: 'person', params: {id: item.id}}">
@@ -51,14 +54,14 @@
 </template>
 
 <script>
+import Vue from "vue";
 import {mapGetters, mapActions, mapMutations} from 'vuex'
-export default {
+export default Vue.extend ({
   name: "persons",
   data: () => {
     return {
       page: 1,
       itemsPerPage: 10,
-      alert: false,
       qtys: [5, 10, 20]
     }
   },
@@ -94,22 +97,8 @@ export default {
   },
   watch: {
     getPage() {
-    this.page = this.getPage
-    },
-    GET_ERROR() {
-      setTimeout( () => {
-        this.alert = !this.alert
-      }, 1000)
-      setTimeout( () => {
-        this.alert = !this.alert
-      }, 5000)
+      this.page = this.getPage
     }
   }
-}
+})
 </script>
-
-<style scoped>
-  tr:nth-child(odd) {
-    background: lightgray;
-  }
-</style>

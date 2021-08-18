@@ -10,14 +10,6 @@
         Введите значение
       </small>
     </form>
-<!--    <label>-->
-<!--      Выберите количество пользователей на странице-->
-<!--    <select>-->
-<!--      <option value="5">5</option>-->
-<!--      <option value="5">10</option>-->
-<!--      <option value="5">20</option>-->
-<!--    </select>-->
-<!--    </label>-->
   </v-app-bar>
 </template>
 
